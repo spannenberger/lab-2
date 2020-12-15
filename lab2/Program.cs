@@ -11,10 +11,10 @@ namespace lab2_2
         {
             var vectors = new List<MyVector>();
             PrintHelp();
-            while (ReadCommands(ref vectors)) ;
+            while (ReadCommands(vectors)) ;
         }
 
-        private static bool ReadCommands(ref List<MyVector> vectors)
+        private static bool ReadCommands(List<MyVector> vectors)
         {
             string buf;
             string[] command;
@@ -28,7 +28,7 @@ namespace lab2_2
                         return false;
 
                     case "new":
-                        AddNewVector(ref vectors, command);
+                        AddNewVector(vectors, command);
                         break;
 
                     case "sum":
@@ -44,7 +44,7 @@ namespace lab2_2
                         break;
 
                     case "print":
-                        PrintVectors(ref vectors);
+                        PrintVectors(vectors);
                         break;
 
                     case "help":
@@ -63,7 +63,7 @@ namespace lab2_2
             return true;
         }
 
-        static void PrintVectors(ref List<MyVector> strings)
+        static void PrintVectors(List<MyVector> strings)
         {
             for (int i = 0; i < strings.Count; i++)
             {
@@ -72,7 +72,7 @@ namespace lab2_2
             }
         }
 
-        static void AddNewVector(ref List<MyVector> strings, string[] command)
+        static void AddNewVector(List<MyVector> strings, string[] command)
         {
             if (command.Length > 3)
             {
